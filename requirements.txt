@@ -1,0 +1,15 @@
+# Flask Web Framework & Server
+
+gunicorn
+python-dotenv
+
+# Langchain - Let pip resolve compatible versions
+langchain
+
+# Vector Store & Embeddings - Let pip resolve
+chromadb
+sentence-transformers
+
+# Google API - Let pip resolve
+google-generativeai
+gradio
