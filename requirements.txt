@@ -6,7 +6,7 @@ python-dotenv
 
 # Langchain - Let pip resolve compatible versions
 langchain
-
+langchain_community
 # Vector Store & Embeddings - Let pip resolve
 chromadb
 sentence-transformers
