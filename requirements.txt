@@ -1,5 +1,6 @@
 # Flask Web Framework & Server
-
+flask
+flask-cors
 gunicorn
 python-dotenv
 
