@@ -1,16 +1,26 @@
+# requirements.txt (Slightly Expanded Version - Try if Minimal Fails Build)
+
 # Flask Web Framework & Server
-flask
-flask-cors
+Flask
+Flask-Cors
 gunicorn
 python-dotenv
 
-# Langchain - Let pip resolve compatible versions
-langchain
-langchain_community
-# Vector Store & Embeddings - Let pip resolve
+# --- Langchain ---
+langchain-core
+langchain-community
+langchain-google-genai # <--- The missing one
+langchain # <-- Add the umbrella package
+
+# --- Vector Store & Embeddings ---
 chromadb
 sentence-transformers
 
-# Google API - Let pip resolve
+# --- Google API Libraries ---
 google-generativeai
-gradio
+google-api-python-client # <-- Explicitly add Google API client
+# google-cloud-aiplatform # <-- Probably not needed unless using Vertex AI directly
+
+# --- Foundational ---
+requests # Often needed implicitly
+pydantic # Often needed implicitly by langchain components
