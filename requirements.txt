@@ -1,26 +1,31 @@
-# requirements.txt (Slightly Expanded Version - Try if Minimal Fails Build)
+# requirements.txt
 
-# Flask Web Framework & Server
-Flask
-Flask-Cors
-gunicorn
-python-dotenv
+# --- Core Framework ---
+flask==2.3.3 # Or a recent stable Flask version
+flask-cors==4.0.0
+gunicorn==21.2.0 # Stable Gunicorn
 
-# --- Langchain ---
-langchain-core
-langchain-community
-langchain-google-genai # <--- The missing one
-langchain # <-- Add the umbrella package
+# --- Langchain Stack (Pin Core, Community, and Partner Packages) ---
+langchain-core==0.1.52 # Example recent version
+langchain-community==0.0.38 # Example recent version
+langchain-google-genai==1.0.3 # Example recent version
 
-# --- Vector Store & Embeddings ---
-chromadb
-sentence-transformers
+# --- Embeddings & Models (CRITICAL PINS) ---
+sentence-transformers==2.7.0 # Pin sentence-transformers
+transformers==4.38.2 # Pin transformers - Often the key fix!
+torch==2.1.2 # Pin torch - Transformers depends heavily on this
+torchvision==0.16.2 # Often needed with torch
+torchaudio==2.1.2 # Often needed with torch
+# Note: Torch versions might differ slightly based on CPU/GPU needs,
+# but pinning helps stability. These versions are generally compatible.
 
-# --- Google API Libraries ---
-google-generativeai
-google-api-python-client # <-- Explicitly add Google API client
-# google-cloud-aiplatform # <-- Probably not needed unless using Vertex AI directly
+# --- Vector Store ---
+chromadb==0.4.24 # Or a specific recent version
 
-# --- Foundational ---
-requests # Often needed implicitly
-pydantic # Often needed implicitly by langchain components
+# --- Utilities ---
+pydantic==1.10.13 # Langchain often pins to Pydantic v1
+python-dotenv==1.0.1
+huggingface-hub==0.20.3 # Pin this too
+requests # Let pip resolve this sub-dependency if not specified elsewhere
+
+# Add any other specific libraries you directly import...
